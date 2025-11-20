@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Cleartrip Automation Suite">
+    <listeners>
+        <listener class-name="utils.TestListener"/>
+    </listeners>
+    <test name="Flight Search Test">
+        <classes>
+            <class name="tests.SearchFlightTest"/>
+        </classes>
+    </test>
+</suite>
