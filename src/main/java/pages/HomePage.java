@@ -107,9 +107,10 @@ public class HomePage extends BasePage {
     // Select a date in the calendar (for return date)
     public void selectDate(LocalDate date) {
         try {
-            String day = String.valueOf(date.getDayOfMonth());
-            String month = date.getMonth().toString().substring(0, 3); // e.g., "DEC"
-            String year = String.valueOf(date.getYear());
+            LocalDate nextDate = date.plusDays(1);
+            String day = String.valueOf(nextDate.getDayOfMonth());
+            String month = nextDate.getMonth().getDisplayName(java.time.format.TextStyle.SHORT, java.util.Locale.ENGLISH); // e.g., "Dec"
+            String year = String.valueOf(nextDate.getYear());
 
             // XPath for the calendar's next month button (update if needed)
             By nextMonthBtn = By.xpath("//button[contains(@aria-label,'Next') or contains(@data-testid,'rightArrow') or contains(@class,'next')]");
@@ -126,7 +127,7 @@ public class HomePage extends BasePage {
                 List<WebElement> labels = driver.findElements(monthYearLabel);
                 for (WebElement label : labels) {
                     String text = label.getText().toLowerCase();
-                    System.out.println("Calendar visible: " + text);
+
                     if (text.contains(month.toLowerCase()) && text.contains(year)) {
                         foundMonth = true;
                         break;
