@@ -44,15 +44,7 @@ public class SearchResultsPage extends BasePage {
         }
     }
 
-    /**
-     * Selects the lowest-priced non-stop flight for the current leg (outbound or return).
-     * If isReturnLeg is true, attempts to select from the return flights section.
-     */
-    /**
-     * Selects the lowest-priced non-stop flight for the current leg (outbound or return).
-     * If isReturnLeg is true, attempts to select from the return flights section.
-     * Returns true if a non-stop flight was found and selected, false if fallback to any flight was used.
-     */
+
     public boolean selectLowestPricedNonStopFlight(boolean isReturnLeg) {
         // If isReturnLeg, scroll to return section (if needed)
         if (isReturnLeg) {
